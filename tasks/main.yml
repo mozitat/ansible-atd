@@ -1,11 +1,9 @@
 ---
 
 - name: Install atd
-  apt:
+  package:
     name: 'at'
     state: '{{ "present" if atd_enabled|bool else "absent" }}'
-    purge: True
-    install_recommends: False
 
 - name: Generate consistent atd variables
   set_fact:
